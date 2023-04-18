@@ -98,6 +98,10 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
+        ArrayList<HashMap<String, String>> allColumns = new ArrayList<>();
+
+       if(findByValue.containsVa)
+
         // TODO - implement this method
         return null;
     }
