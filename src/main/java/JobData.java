@@ -75,11 +75,11 @@ public class JobData {
 
         ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-        for (HashMap<String, String> row : allJobs) {
+        for (HashMap<String, String> row : allJobs) { //row = job.
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toLowerCase().contains(value.toLowerCase())) {
                 jobs.add(row);
             }
         }
@@ -98,12 +98,28 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<HashMap<String, String>> allColumns = new ArrayList<>();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
 
-       if(findByValue.containsVa)
+       for(HashMap<String, String> row : allJobs) {
+           //loop through allJobs (each job in the arraylist)
+
+          for(String key : row.keySet()){
+              String aValue = row.get(key);
+
+              if (aValue.toLowerCase().contains(value.toLowerCase())) {
+                  jobs.add(row);
+              }
+          }
+       }
+
+
+        // loop to go through each hashmap (each key:value pair name, employer, etc)
+        // when it's iterating through checking if the value match our search term
+        //if found we add the actual job(row) to the jobs.
+
 
         // TODO - implement this method
-        return null;
+        return jobs;
     }
 
     /**
